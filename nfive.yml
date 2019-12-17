@@ -1,0 +1,17 @@
+name: StreetlifeRP/Character
+version: 1.0.0
+description: The master plugin for all Character related systems
+author: StreetlifeRP
+license: LGPL-3.0-or-later
+server:
+  main:
+    - StreetlifeRP.Character.Server
+  include:
+    - StreetlifeRP.Character.Shared
+client:
+  main:
+    - StreetlifeRP.Character.Client
+  include:
+    - StreetlifeRP.Character.Shared
+  files:
+    - Overlays/CharacterOverlay.html
