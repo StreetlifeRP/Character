@@ -61,9 +61,12 @@
     <Compile Include="Models\Appearance\Feature.cs" />
     <Compile Include="Models\Appearance\FeatureColourTypes.cs" />
     <Compile Include="Models\Appearance\FeatureTypes.cs" />
+    <Compile Include="Models\Backstory\Hometown.cs" />
+    <Compile Include="Models\Backstory\HometownType.cs" />
     <Compile Include="Models\IAlias.cs" />
     <Compile Include="Models\IApparel.cs" />
     <Compile Include="Models\IAppearance.cs" />
+    <Compile Include="Models\IBackstory.cs" />
     <Compile Include="Models\ICharacter.cs" />
     <Compile Include="Models\IFaceShape.cs" />
     <Compile Include="Models\IHeritage.cs" />
