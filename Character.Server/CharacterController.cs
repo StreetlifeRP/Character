@@ -12,7 +12,7 @@ namespace StreetlifeRP.Character.Server
 		public CharacterController(ILogger logger, Configuration configuration, ICommunicationManager comms) : base(logger, configuration)
 		{
 			// Send configuration when requested
-			comms.Event(CharacterEvents.Configuration).FromClients().OnRequest(e => e.Reply(this.Configuration));
+			comms.Event(CharacterEvents.Configuration).FromClients().OnRequest(e => e.Reply(Configuration));
 		}
 	}
 }
