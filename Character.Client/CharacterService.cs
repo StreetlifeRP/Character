@@ -19,26 +19,29 @@ namespace StreetlifeRP.Character.Client
 		private Configuration config;
 		private CharacterOverlay overlay;
 
-		public CharacterService(ILogger logger, ITickManager ticks, ICommunicationManager comms, ICommandManager commands, IOverlayManager overlay, User user) : base(logger, ticks, comms, commands, overlay, user) { }
+		public CharacterService(
+			ILogger logger, ITickManager ticks,
+			ICommunicationManager comms, ICommandManager commands,
+			IOverlayManager overlay, User user)
+			: base(logger, ticks, comms, commands, overlay, user) { }
 
 		public override async Task Started()
 		{
-			// Request server configuration
-			this.config = await this.Comms.Event(CharacterEvents.Configuration).ToServer().Request<Configuration>();
+			// Request server configuration.
+			config = await Comms.Event(CharacterEvents.Configuration)
+				.ToServer()
+				.Request<Configuration>();
 
-			this.Logger.Debug($"From server config: {this.config.Example}");
+			// Create overlay.
+			overlay = new CharacterOverlay(OverlayManager);
 
-			// Create overlay
-			this.overlay = new CharacterOverlay(this.OverlayManager);
-
-			// Attach a tick handler
-			this.Ticks.On(OnTick);
+			// Attach a tick handler.
+			Ticks.On(OnTick);
 		}
 
 		private async Task OnTick()
 		{
-			this.Logger.Debug("Hello World!");
-			// Do something every frame
+			// Do something every frame.
 
 			await Delay(TimeSpan.FromSeconds(1));
 		}
